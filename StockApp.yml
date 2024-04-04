@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: StockApp
+server:
+  port: 9090
+   
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: admin
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect   
+    
+    spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: stockdb
+      
+      security:
+      user:
+      name: zensar
+      password: zensar@123
+ 
+management:
+  endpoints:
+    web:
+      base-path: /stock-app
+      exposure:
+        include:
+        - "*"
+        exclude:
+        - "beans"
+        
+        endpoint:
+    health:
+      enabled: true
+     
+    
